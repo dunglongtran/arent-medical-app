@@ -8,51 +8,47 @@ type Props = {
 }
 const ExerciseRecordItem = () => {
   return (
-    <div className='d-flex align-items-center mb-8 col-lg-5'>
+    <div className='d-flex align-items-center mb-8 col-lg-6'>
       {/* begin::Bullet */}
-      <span className='bullet bullet-vertical h-40px bg-success'></span>
+      <span className='bullet secondary bullet-dot me-5'></span>
       {/* end::Bullet */}
       {/* begin::Checkbox */}
-      <div className='form-check form-check-custom form-check-solid mx-5'>
-        <input className='form-check-input' type='checkbox' value='' />
-      </div>
+      {/*<div className='form-check form-check-custom form-check-solid mx-5'>*/}
+      {/*  <input className='form-check-input' type='checkbox' value='' />*/}
+      {/*</div>*/}
       {/* end::Checkbox */}
       {/* begin::Description */}
       <div className='flex-grow-1'>
-        <a href='#' className='text-gray-800 text-hover-primary fw-bolder fs-6'>
-          Create FireStone Logo
+        <a href='#' className='text-white text-hover-primary fw-bolder fs-6'>
+            家事全般（立位・軽い）
         </a>
-        <span className='text-muted fw-bold d-block'>Due in 2 Days</span>
+        <span className='text-warning fw-bold d-block'>26kcal</span>
       </div>
       {/* end::Description */}
-      <span className='badge badge-light-success fs-8 fw-bolder'>New</span>
+      <span className='text-warning fs-8 fw-bolder fs-4'>10 min</span>
     </div>
   )
 }
 const ExerciseRecordWidget: React.FC<Props> = ({className}) => {
   return (
-    <div className={`card ${className}`}>
+    <div className={`card ${className}`} style={{background: '#414141'
+    }}>
       {/* begin::Header */}
       <div className='card-header border-0'>
-        <h3 className='card-title fw-bolder text-dark'>Todo</h3>
-        <div className='card-toolbar'>
-          {/* begin::Menu */}
-          <button
-            type='button'
-            className='btn btn-sm btn-icon btn-color-primary btn-active-light-primary'
-            data-kt-menu-trigger='click'
-            data-kt-menu-placement='bottom-end'
-            data-kt-menu-flip='top-end'
-          >
-            <KTSVG path='/media/icons/duotune/general/gen024.svg' className='svg-icon-2' />
-          </button>
-          <Dropdown1 />
-          {/* end::Menu */}
+          {/* begin::Title */}
+          <h3 className='card-title align-items-start flex-row'>
+              <span className='card-label fw-bolder fs-3 mb-1 text-uppercase text-white fw-light text-wrap'>My <br />Exercise</span>
+
+              <span className=' fw-bold fs-1 text-white'>2021.05.21</span>
+          </h3>
+          {/* end::Title */}
+
+          <div className='card-toolbar'>
         </div>
       </div>
       {/* end::Header */}
       {/* begin::Body */}
-      <div className='card-body pt-2 row'>
+      <div className='card-body pt-2 row d-flex align-items-center justify-content-between'>
         {Array(8)
           .fill(1)
           .map((value, index) => (

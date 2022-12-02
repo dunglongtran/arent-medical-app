@@ -12,8 +12,8 @@ export function MenuInner() {
       <MenuItem title='自分の記録' to='/top' icon={'/healthy/icon_memo.svg'} />
       <MenuItem title='チャレンジ' to='/record' icon={'/healthy/icon_challenge.svg'} />
       <MenuItem title='お知らせ' to='/column' icon={'/healthy/icon_info.svg'} />
-      <MenuItem title={intl.formatMessage({id: 'MENU.DASHBOARD'})} to='/dashboard' />
-      <MenuItem title='Layout Builder' to='/builder' />
+      {/*<MenuItem title={intl.formatMessage({id: 'MENU.DASHBOARD'})} to='/dashboard' />*/}
+      {/*<MenuItem title='Layout Builder' to='/builder' />*/}
       {/*<MenuInnerWithSub
         title='Crafted'
         to='/crafted'

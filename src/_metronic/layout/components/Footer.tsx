@@ -5,7 +5,7 @@ import {useLayout} from '../core'
 const Footer: FC = () => {
   const {classes} = useLayout()
   return (
-    <div className='footer py-4 d-flex flex-lg-column' id='kt_footer'>
+    <div className='footer py-4 d-flex flex-lg-column' id='kt_footer' style={{backgroundColor:'#2E2E2E'}}>
       {/* begin::Container */}
       <div
         className={`${classes.footerContainer} d-flex flex-column flex-md-row align-items-center justify-content-between`}
@@ -22,20 +22,36 @@ const Footer: FC = () => {
         {/* begin::Nav */}
         <ul className='menu menu-gray-600 menu-hover-primary fw-bold order-1'>
           <li className='menu-item'>
-            <a href='#' className='menu-link ps-0 pe-2'>
-              About
+            <a href='#' className='menu-link ps-0 pe-2 text-white'>
+              会員登録
             </a>
           </li>
           <li className='menu-item'>
-            <a href='#' className='menu-link pe-0 pe-2'>
-              Contact
+            <a href='#' className='menu-link pe-0 pe-2 text-white'>
+              運営会社
             </a>
           </li>
           <li className='menu-item'>
-            <a href='#' className='menu-link pe-0'>
-              Purchase
+            <a href='#' className='menu-link pe-0 text-white'>
+              利用規約
             </a>
           </li>
+          <li className='menu-item'>
+            <a href='#' className='menu-link pe-0 text-white'>
+              個人情報の取扱について
+            </a>
+          </li>
+          <li className='menu-item'>
+            <a href='#' className='menu-link pe-0 text-white'>
+              特定商取引法に基づく表記
+            </a>
+          </li>
+          <li className='menu-item'>
+            <a href='#' className='menu-link pe-0 text-white'>
+              お問い合わせ
+            </a>
+          </li>
+
         </ul>
         {/* end::Nav */}
       </div>

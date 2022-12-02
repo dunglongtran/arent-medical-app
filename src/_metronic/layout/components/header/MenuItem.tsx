@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import {useLocation} from 'react-router'
 import clsx from 'clsx'
 import {checkIsActive, KTSVG} from '../../../helpers'
-
+import './MenuItem.scss'
 type Props = {
   to: string
   title: string
@@ -49,7 +49,7 @@ const MenuItem: React.FC<Props> = ({
           </span>
         )}
 
-        <span className='menu-title'>{title}</span>
+        <span className='menu-title text-white'>{title}</span>
 
         {hasArrow && <span className='menu-arrow'></span>}
       </Link>

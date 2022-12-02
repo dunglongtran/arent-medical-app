@@ -24,12 +24,12 @@ const MasterLayout: React.FC = ({children}) => {
         <div className='wrapper d-flex flex-column flex-row-fluid' id='kt_wrapper'>
           <HeaderWrapper />
 
-          <div id='kt_content' className='content d-flex flex-column flex-column-fluid'>
+          <div id='kt_content' className='content d-flex flex-column flex-column-fluid pt-0'>
             {/*<Toolbar />*/}
             <div className='post d-flex flex-column-fluid' id='kt_post'>
               <Content>{children}</Content>
             </div>
-            <div className='post d-flex flex-column-fluid align-items-center justify-content-center row' id='kt_button'>
+            <div className='post d-flex flex-column-fluid align-items-center justify-content-center row ' id='kt_button'>
               <a href='#' className='btn btn-warning col-mb-12 col-lg-6'>
                   自分の日記をもっと見る
               </a>
@@ -40,19 +40,19 @@ const MasterLayout: React.FC = ({children}) => {
       </div>
 
       {/* begin:: Drawers */}
-      <ActivityDrawer />
-      <ExploreMain />
-      <DrawerMessenger />
+      {/*<ActivityDrawer />*/}
+      {/*<ExploreMain />*/}
+      {/*<DrawerMessenger />*/}
       {/* end:: Drawers */}
 
       {/* begin:: Modals */}
       <Main />
-      <InviteUsers />
-      <UpgradePlan />
+      {/*<InviteUsers />*/}
+      {/*<UpgradePlan />*/}
       {/* end:: Modals */}
 
-      <MasterInit />
-      <ScrollTop />
+      {/*<MasterInit />*/}
+      {/*<ScrollTop />*/}
     </PageDataProvider>
   )
 }
