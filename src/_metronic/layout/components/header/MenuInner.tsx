@@ -3,20 +3,24 @@ import {MenuItem} from './MenuItem'
 import {MenuInnerWithSub} from './MenuInnerWithSub'
 import {MegaMenu} from './MegaMenu'
 import {useIntl} from 'react-intl'
+import {toAbsoluteUrl} from '../../../helpers'
 
 export function MenuInner() {
   const intl = useIntl()
   return (
     <>
+      <MenuItem title='自分の記録' to='/top' icon={'/healthy/icon_memo.svg'} />
+      <MenuItem title='チャレンジ' to='/record' icon={'/healthy/icon_challenge.svg'} />
+      <MenuItem title='お知らせ' to='/column' icon={'/healthy/icon_info.svg'} />
       <MenuItem title={intl.formatMessage({id: 'MENU.DASHBOARD'})} to='/dashboard' />
       <MenuItem title='Layout Builder' to='/builder' />
-      <MenuInnerWithSub
+      {/*<MenuInnerWithSub
         title='Crafted'
         to='/crafted'
         menuPlacement='bottom-start'
         menuTrigger='click'
       >
-        {/* PAGES */}
+         PAGES
         <MenuInnerWithSub
           title='Pages'
           to='/crafted/pages'
@@ -56,7 +60,7 @@ export function MenuInner() {
           </MenuInnerWithSub>
         </MenuInnerWithSub>
 
-        {/* ACCOUNT */}
+         ACCOUNT
         <MenuInnerWithSub
           title='Accounts'
           to='/crafted/accounts'
@@ -69,7 +73,7 @@ export function MenuInner() {
           <MenuItem to='/crafted/account/settings' title='Settings' hasBullet={true} />
         </MenuInnerWithSub>
 
-        {/* ERRORS */}
+         ERRORS
         <MenuInnerWithSub
           title='Errors'
           to='/error'
@@ -82,7 +86,7 @@ export function MenuInner() {
           <MenuItem to='/error/500' title='Error 500' hasBullet={true} />
         </MenuInnerWithSub>
 
-        {/* Widgets */}
+         Widgets
         <MenuInnerWithSub
           title='Widgets'
           to='/crafted/widgets'
@@ -101,7 +105,7 @@ export function MenuInner() {
       </MenuInnerWithSub>
 
       <MenuInnerWithSub title='Apps' to='/apps' menuPlacement='bottom-start' menuTrigger='click'>
-        {/* PAGES */}
+         PAGES
         <MenuInnerWithSub
           title='Chat'
           to='/apps/chat'
@@ -123,7 +127,7 @@ export function MenuInner() {
         menuTrigger='click'
       >
         <MegaMenu />
-      </MenuInnerWithSub>
+      </MenuInnerWithSub>*/}
     </>
   )
 }

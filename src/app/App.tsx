@@ -6,23 +6,23 @@ import AuthInit from './modules/auth/redux/AuthInit'
 import {Routes} from './routing/Routes'
 
 type Props = {
-  basename: string
+    basename: string
 }
 
 const App: React.FC<Props> = ({basename}) => {
-  return (
-    <Suspense fallback={<LayoutSplashScreen />}>
-      <BrowserRouter basename={basename}>
-        <I18nProvider>
-          <LayoutProvider>
-            <AuthInit>
-              <Routes />
-            </AuthInit>
-          </LayoutProvider>
-        </I18nProvider>
-      </BrowserRouter>
-    </Suspense>
-  )
+    return (
+        <Suspense fallback={<LayoutSplashScreen/>}>
+            <BrowserRouter basename={basename}>
+                <I18nProvider>
+                    <LayoutProvider>
+                        <AuthInit>
+                            <Routes/>
+                        </AuthInit>
+                    </LayoutProvider>
+                </I18nProvider>
+            </BrowserRouter>
+        </Suspense>
+    )
 }
 
 export {App}

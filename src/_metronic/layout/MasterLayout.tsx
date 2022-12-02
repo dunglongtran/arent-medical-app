@@ -25,9 +25,14 @@ const MasterLayout: React.FC = ({children}) => {
           <HeaderWrapper />
 
           <div id='kt_content' className='content d-flex flex-column flex-column-fluid'>
-            <Toolbar />
+            {/*<Toolbar />*/}
             <div className='post d-flex flex-column-fluid' id='kt_post'>
               <Content>{children}</Content>
+            </div>
+            <div className='post d-flex flex-column-fluid align-items-center justify-content-center row' id='kt_button'>
+              <a href='#' className='btn btn-warning col-mb-12 col-lg-6'>
+                  自分の日記をもっと見る
+              </a>
             </div>
           </div>
           <Footer />

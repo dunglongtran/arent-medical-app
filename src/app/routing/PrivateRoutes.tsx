@@ -3,6 +3,8 @@ import {Redirect, Route, Switch} from 'react-router-dom'
 import {FallbackView} from '../../_metronic/partials'
 import {DashboardWrapper} from '../pages/dashboard/DashboardWrapper'
 import {MenuTestPage} from '../pages/MenuTestPage'
+import {TopPage} from "../pages/TopPage";
+import {MyRecordPage} from "../pages/MyRecordPage";
 
 export function PrivateRoutes() {
   const BuilderPageWrapper = lazy(() => import('../pages/layout-builder/BuilderPageWrapper'))
@@ -15,6 +17,8 @@ export function PrivateRoutes() {
   return (
     <Suspense fallback={<FallbackView />}>
       <Switch>
+        <Route path='/top' component={TopPage} />
+        <Route path='/record' component={MyRecordPage} />
         <Route path='/dashboard' component={DashboardWrapper} />
         <Route path='/builder' component={BuilderPageWrapper} />
         <Route path='/crafted/pages/profile' component={ProfilePage} />
