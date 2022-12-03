@@ -60,7 +60,7 @@ const TopPage: FC = () => {
             {/* end::Row */}
             {/* begin::Row */}
             <div className='row g-5 g-xl-8'>
-                {meal.map((item:any, index:number) => (
+                {meal.map((item: any, index: number) => (
                     <div className='col-xl-3'>
                         <MealTopPageWidget3
                             className='card-xl-stretch mb-xl-8'
@@ -79,7 +79,4 @@ const TopPage: FC = () => {
     )
 }
 
-export
-{
-    TopPage
-}
+export {TopPage}

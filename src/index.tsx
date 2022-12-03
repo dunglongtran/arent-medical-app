@@ -30,6 +30,7 @@ import './_metronic/assets/sass/style.react.scss'
  * @see https://facebook.github.io/create-react-app/docs/using-the-public-folder
  */
 const {PUBLIC_URL} = process.env
+console.log(process.env)
 /**
  * Creates `axios-mock-adapter` instance for provided `axios` instance, add
  * basic Metronic mocks and returns it.
