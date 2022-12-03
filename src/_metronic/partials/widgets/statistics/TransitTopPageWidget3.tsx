@@ -10,10 +10,11 @@ type Props = {
     description: string
     change: string
     color: string
+    icon: string
+
 }
 
-const TransitTopPageWidget3: React.FC<Props> = ({className, title, description, change, color}) => {
-    const chartRef = useRef<HTMLDivElement | null>(null)
+const TransitTopPageWidget3: React.FC<Props> = ({className, title,icon, description, change, color}) => {
 
 
     return (
@@ -28,10 +29,10 @@ const TransitTopPageWidget3: React.FC<Props> = ({className, title, description, 
             >
                 {/*<KTSVG path={'/healthy/bg_transit.svg'}/>*/}
                 <img
-                    src={toAbsoluteUrl('/healthy/icon_knife.svg')}
+                    src={toAbsoluteUrl(icon)}
                     className='w-50 h-auto'
                 />
-                <span className="text-white fw-bold d-block fs-1">Morning</span>
+                <span className="text-white fw-bold d-block fs-1">{title}</span>
             </div>
             {/* end::Body */}
         </div>

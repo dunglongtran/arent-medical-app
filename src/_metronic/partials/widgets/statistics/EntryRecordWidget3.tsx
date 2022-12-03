@@ -10,9 +10,10 @@ type Props = {
     description: string
     change: string
     color: string
+    icon : string
 }
 
-const EntryRecordWidget3: React.FC<Props> = ({className, title, description, change, color}) => {
+const EntryRecordWidget3: React.FC<Props> = ({className, title, description, change, color,icon}) => {
 
 
     return (
@@ -26,11 +27,11 @@ const EntryRecordWidget3: React.FC<Props> = ({className, title, description, cha
                     backgroundColor: '#2E2E2E'
                 }}
             >
-                <img src={toAbsoluteUrl('/healthy/record/MyRecommend-3.svg')} className={`h-100 w-100`}/>
+                <img src={toAbsoluteUrl(icon)} className={`h-100 w-100`}/>
                 <div className={'d-flex flex-column position-absolute'}>
-                    <span className={'text-center fs-1 mb-2'} style={{
+                    <span className={'text-center fs-1 mb-2 text-uppercase'} style={{
                         color: '#FFCC21'
-                    }}>BODY RECORD</span>
+                    }}>{title}</span>
                     <button className={'btn text-white p-1 rounded-0'} style={{background: '#FF963C'}}>
                         自分のカラダの記録
                     </button>

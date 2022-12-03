@@ -13,7 +13,7 @@ type Props = {
 }
 
 const RecommendedWidget3: React.FC<Props> = ({className, title, description, change, color}) => {
-
+    console.log()
 
     return (
         <div className={`card ${className} p-1 bg-warningd-flex align-items-center`} style={{
@@ -27,12 +27,13 @@ const RecommendedWidget3: React.FC<Props> = ({className, title, description, cha
                 }}
             >
 
-                    <span className={'text-center fs-1 mb-2 text-wrap'} style={{
-                        color: '#FFCC21'
-                    }}>RECOMMENDED
-COLUMN</span>
+                {title.split(' ').map(text => <span className={'text-center fs-1 mb-2 text-wrap'} style={{
+                    color: '#FFCC21'
+                }}>
+                        {text}
+                    </span>)}
                 <div className={'bg-white w-25 h-1px m-2'}/>
-                    <span className={' text-white p-1 rounded-0 fs-18'}>
+                <span className={' text-white p-1 rounded-0 fs-18'}>
                         オススメ
                     </span>
 

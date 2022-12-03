@@ -9,10 +9,11 @@ import ReactApexChart from 'react-apexcharts'
 
 type Props = {
     className: string
+    chart:Array<any>
 }
 // ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
 
-const ChartGraphWidget: React.FC<Props> = ({className}) => {
+const ChartGraphWidget: React.FC<Props> = ({className,chart}) => {
     const chartRef = useRef<HTMLDivElement | null>(null)
     // const height = parseInt(getCSS(chartRef.current, 'height'))
     const {series, ...options} = getChartOptions(350)
@@ -72,7 +73,7 @@ const ChartGraphWidget: React.FC<Props> = ({className}) => {
             <div className='card-body'>
                 {/* begin::Chart */}
                 {/*<div ref={chartRef} id='kt_charts_widget_1_chart' style={{height: '350px'}} />*/}
-                <ReactApexChart options={options} series={series} type='line' height={350}/>
+                <ReactApexChart options={options} series={chart || series} type='line' height={350}/>
                 {/* end::Chart */}
             </div>
             {/* end::Body */}

@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, useEffect} from "react";
 import SVG from "react-inlinesvg";
 import {toAbsoluteUrl} from "../../_metronic/helpers";
 import {ListsWidget3, TablesWidget10, ChartsWidget1, StatisticsWidget3} from "../../_metronic/partials/widgets";
@@ -9,24 +9,44 @@ import {MealTopPageWidget3} from "../../_metronic/partials/widgets/statistics/Me
 import {DairyWidget3} from "../../_metronic/partials/widgets/statistics/DiaryWidget3";
 import {RecommendedWidget3} from "../../_metronic/partials/widgets/statistics/RecommendedWidget3";
 import {PostColumnWidget3} from "../../_metronic/partials/widgets/statistics/PostColumnWidget3";
+import {useDispatch, useSelector} from "react-redux";
+import {ITopState} from "../modules/top-page";
+import * as column from "../modules/column-page";
 
 
 const ColumnPage: FC = () => {
+    const {recommend = [], post} = useSelector(state => (state as any).column as ITopState)
+    const dispatch = useDispatch()
+    const loadData = async () => {
+        const recommend = await column.getRecommend().then(res => res.data)
+        console.log(recommend)
+        dispatch(column.actions.loadRecommend(recommend as Array<any>))
+        const post = await column.getPost().then(res => res.data)
+        dispatch(column.actions.loadPost(post as Array<any>))
+    }
+    useEffect(() => {
+        loadData()
+        return () => {
+
+        };
+    }, []);
     return (
         <>
             {/* begin::Row */}
             <div className='row g-5 g-xl-8 mt-2'>
-                <div className='col-xl-3'>
-                    <RecommendedWidget3
-                        className='card-xl-stretch mb-xl-8'
-                        color='success'
-                        title='Weekly Sales'
-                        description='Your Weekly Sales Chart'
-                        change='+100'
-                    />
-                </div>
+                {recommend.map((value:any, index:number) => (
+                    <div className='col-xl-3' key={`recommend_${index}`}>
+                        <RecommendedWidget3
+                            className='card-xl-stretch mb-xl-8'
+                            color='success'
+                            title={value.name}
+                            description='Your Weekly Sales Chart'
+                            change='+100'
+                        />
+                    </div>))
+                }
 
-                <div className='col-xl-3'>
+                {/* <div className='col-xl-3'>
                     <RecommendedWidget3
                         className='card-xl-stretch mb-xl-8'
                         color='danger'
@@ -53,19 +73,20 @@ const ColumnPage: FC = () => {
                         description='Marketplace Sales Chart'
                         change='+180'
                     />
-                </div>
+                </div>*/}
             </div>
             {/* end::Row */}
             {/* begin::Row */}
             <div className='row g-5 g-xl-8'>
-                {Array(8).fill(1).map((value, index) => (
-                    <div className='col-xl-3'>
+                {post.map((item:any, index:any) => (
+                    <div className='col-xl-3' key={`post_${index}`}>
                         <PostColumnWidget3
                             className='card-xl-stretch mb-xl-8'
                             color='success'
-                            title='2021.05.17   23:25'
+                            title={item.name}
                             description='Your Weekly Sales Chart'
                             change='+100'
+                            icon={item.icon}
                         />
                     </div>))}
 

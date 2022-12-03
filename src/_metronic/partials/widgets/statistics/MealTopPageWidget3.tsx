@@ -10,16 +10,17 @@ type Props = {
     description: string
     change: string
     color: string
+    icon:string
 }
 
-const MealTopPageWidget3: React.FC<Props> = ({className, title, description, change, color}) => {
+const MealTopPageWidget3: React.FC<Props> = ({className, title, description, change, color,icon}) => {
 
 
     return (
         <div className={`card ${className}`}>
             {/* begin::Body */}
             <div className='card-body d-flex flex-column p-0 position-relative'>
-                <img src={toAbsoluteUrl('/healthy/meal/d01.svg')}/>
+                <img src={toAbsoluteUrl(icon)}/>
                 <div className='d-flex position-absolute bg-warning bottom-0 p-4'>
 
                     <a href='#' className='text-hover-primary fw-bolder text-white fs-2'>

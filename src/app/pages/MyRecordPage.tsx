@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, useEffect} from "react";
 import SVG from "react-inlinesvg";
 import {toAbsoluteUrl} from "../../_metronic/helpers";
 import {ListsWidget3, TablesWidget10, ChartsWidget1, StatisticsWidget3} from "../../_metronic/partials/widgets";
@@ -7,42 +7,66 @@ import {ExerciseRecordWidget} from "../../_metronic/partials/widgets/lists/Exerc
 import {EntryRecordWidget3} from "../../_metronic/partials/widgets/statistics/EntryRecordWidget3";
 import {MealTopPageWidget3} from "../../_metronic/partials/widgets/statistics/MealTopPageWidget3";
 import {DairyWidget3} from "../../_metronic/partials/widgets/statistics/DiaryWidget3";
+import {useDispatch, useSelector} from "react-redux";
+import {ITopState} from "../modules/record-page";
+import * as record from "../modules/record-page";
 
 
 const MyRecordPage: FC = () => {
+    const {chart, entry = [], exercise} = useSelector(state => (state as any).record as ITopState)
+    const dispatch = useDispatch()
+    const loadData = async () => {
+        const chart = await record.getChart().then(res => res.data)
+        dispatch(record.actions.loadChart(chart as Array<any>))
+        const entry = await record.getEntry().then(res => res.data)
+console.log(entry)
+        dispatch(record.actions.loadEntry(entry as Array<any>))
+        const exercise = await record.getExercise().then(res => res.data)
+        dispatch(record.actions.loadExercise(exercise as Array<any>))
+    }
+    useEffect(() => {
+        loadData()
+        return () => {
+
+        };
+    }, []);
+    console.log(entry,'---')
     return (
         <>
             {/* begin::Row */}
             <div className='row g-5 g-xl-8 mt-2'>
-                <div className='col-xl-4'>
+                {entry[0] && <div className='col-xl-4'>
                     <EntryRecordWidget3
                         className='card-xl-stretch mb-xl-8'
                         color='success'
-                        title='Weekly Sales'
+                        title={entry[0].name}
                         description='Your Weekly Sales Chart'
                         change='+100'
+                        icon={entry[0].icon}
                     />
-                </div>
+                </div>}
 
-                <div className='col-xl-4 d-flex align-items-center justify-content-center'>
+                {entry[1] && <div className='col-xl-4 d-flex align-items-center justify-content-center'>
                     <EntryRecordWidget3
                         className='card-xl-stretch mb-xl-8'
                         color='danger'
-                        title='Authors Progress'
+                        title={entry[1].name}
                         description='Marketplace Authors Chart'
                         change='-260'
+                        icon={entry[1].icon}
                     />
-                </div>
+                </div>}
 
-                <div className='col-xl-4 d-flex align-items-center justify-content-end'>
+                {entry[2] && <div className='col-xl-4 d-flex align-items-center justify-content-end'>
                     <EntryRecordWidget3
                         className='card-xl-stretch mb-5 mb-xl-8'
                         color='primary'
-                        title='Sales Progress'
+                        title={entry[2].name}
                         description='Marketplace Sales Chart'
                         change='+180'
+                        icon={entry[2].icon}
                     />
-                </div>
+                </div>}
             </div>
             {/* end::Row */}
             {/* begin::Row */}
@@ -50,7 +74,7 @@ const MyRecordPage: FC = () => {
                 background: '#414141'
             }}>
                 <div className='col-xl-12'>
-                    <ChartGraphWidget className='card-xxl-stretch mb-5 mb-xl-8'/>
+                    <ChartGraphWidget className='card-xxl-stretch mb-5 mb-xl-8' chart={chart}/>
                 </div>
             </div>
             {/* end::Row */}
@@ -59,7 +83,7 @@ const MyRecordPage: FC = () => {
                 background: '#414141'
             }}>
                 <div className='col-xxl-12'>
-                    <ExerciseRecordWidget className='card-xxl-stretch mb-xl-3'/>
+                    <ExerciseRecordWidget className='card-xxl-stretch mb-xl-3' items={exercise}/>
                 </div>
             </div>
             {/* end::Row */}

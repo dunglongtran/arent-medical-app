@@ -5,8 +5,14 @@ import {Dropdown1} from '../../content/dropdown/Dropdown1'
 
 type Props = {
     className: string
+    items: Array<any>
 }
-const ExerciseRecordItem = () => {
+type ItemProps = {
+    kcal: number | string,
+    time: string
+}
+const ExerciseRecordItem = (props:ItemProps) => {
+    const {kcal,time} = props
     return (
         <div className='d-flex align-items-center mb-8 col-lg-6 position-relative'>
             <div className={'w-100 d-flex border-bottom  bottom-0 align-items-center pb-3'}>
@@ -23,15 +29,15 @@ const ExerciseRecordItem = () => {
                     <a href='#' className='text-white text-hover-primary fw-bolder fs-6'>
                         家事全般（立位・軽い）
                     </a>
-                    <span className='text-warning fw-bold d-block'>26kcal</span>
+                    <span className='text-warning fw-bold d-block'>{kcal}kcal</span>
                 </div>
                 {/* end::Description */}
-                <span className='text-warning fs-8 fw-bolder fs-4'>10 min</span>
+                <span className='text-warning fs-8 fw-bolder fs-4'>{time}</span>
             </div>
         </div>
     )
 }
-const ExerciseRecordWidget: React.FC<Props> = ({className}) => {
+const ExerciseRecordWidget: React.FC<Props> = ({className, items}) => {
     return (
         <div className={`card ${className}`} style={{
             background: '#414141'
@@ -53,10 +59,9 @@ const ExerciseRecordWidget: React.FC<Props> = ({className}) => {
             {/* end::Header */}
             {/* begin::Body */}
             <div className='card-body pt-2 row d-flex align-items-center justify-content-between'>
-                {Array(8)
-                    .fill(1)
+                {items
                     .map((value, index) => (
-                        <ExerciseRecordItem key={index}/>
+                        <ExerciseRecordItem key={index} kcal={value.kcal} time={value.time}/>
                     ))}
             </div>
             {/* end::Body */}
