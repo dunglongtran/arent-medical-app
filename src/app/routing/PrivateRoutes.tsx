@@ -5,6 +5,7 @@ import {DashboardWrapper} from '../pages/dashboard/DashboardWrapper'
 import {MenuTestPage} from '../pages/MenuTestPage'
 import {TopPage} from "../pages/TopPage";
 import {MyRecordPage} from "../pages/MyRecordPage";
+import {ColumnPage} from "../pages/ColumnPage";
 
 export function PrivateRoutes() {
   const BuilderPageWrapper = lazy(() => import('../pages/layout-builder/BuilderPageWrapper'))
@@ -19,6 +20,7 @@ export function PrivateRoutes() {
       <Switch>
         <Route path='/top' component={TopPage} />
         <Route path='/record' component={MyRecordPage} />
+        <Route path='/column' component={ColumnPage} />
         <Route path='/dashboard' component={DashboardWrapper} />
         <Route path='/builder' component={BuilderPageWrapper} />
         <Route path='/crafted/pages/profile' component={ProfilePage} />

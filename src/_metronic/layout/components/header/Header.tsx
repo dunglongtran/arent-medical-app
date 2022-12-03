@@ -4,7 +4,7 @@ import {MenuInner} from './MenuInner'
 const Header: FC = () => {
   return (
     <div
-      className='header-menu align-items-stretch'
+      className='header-menu align-items-stretch w-100'
       data-kt-drawer='true'
       data-kt-drawer-name='header-menu'
       data-kt-drawer-activate='{default: true, lg: false}'
@@ -17,7 +17,7 @@ const Header: FC = () => {
       data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}"
     >
       <div
-        className='menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch'
+        className='menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch justify-content-around w-100'
         id='#kt_header_menu'
         data-kt-menu='true'
       >

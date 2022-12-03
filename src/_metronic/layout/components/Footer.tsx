@@ -8,7 +8,7 @@ const Footer: FC = () => {
     <div className='footer py-4 d-flex flex-lg-column' id='kt_footer' style={{backgroundColor:'#2E2E2E'}}>
       {/* begin::Container */}
       <div
-        className={`${classes.footerContainer} d-flex flex-column flex-md-row align-items-center justify-content-between`}
+        className={`${classes.footerContainer} d-flex flex-column flex-md-row align-items-center justify-content-between col-lg-10`}
       >
         {/* begin::Copyright */}
         {/*<div className='text-dark order-2 order-md-1'>*/}
